@@ -29,7 +29,6 @@ public class LoginFragment extends Fragment {
     private TextView signUpBtn;
     private Context context;
 
-    private FirebaseUser currentUser;
     private FirebaseAuth firebaseAuth;
 
     private UserAuthListener userAuthListener;

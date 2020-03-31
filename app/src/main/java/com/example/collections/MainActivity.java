@@ -6,8 +6,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.UserAuthListener, LoginFragment.SignupListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.UserAuthListener, LoginFragment.SignupListener, SignupFragment.OnAddUserSuccessListener {
 
     FragmentManager fragmentManager;
 
@@ -33,6 +34,14 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Use
         FragmentTransaction ft = fragmentManager.beginTransaction();
         SignupFragment signupFragment = new SignupFragment();
         ft.replace(R.id.fragmentContainer, signupFragment);
+        ft.commit();
+    }
+
+    @Override
+    public void onAddUserSuccessfull() {
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        LoginFragment loginFragment = new LoginFragment();
+        ft.replace(R.id.fragmentContainer, loginFragment);
         ft.commit();
     }
 }
